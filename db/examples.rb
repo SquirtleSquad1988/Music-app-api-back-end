@@ -17,3 +17,8 @@
 #                password: 'abc123',
 #                password_confirmation: nil)
 # end
+%w(Revolver Please_Please_Me Let_It_Be Abbey_Road Meet_The_Beatles Help! A_Hard_Days_Night).each do |name|
+  album = name.to_s
+  Album.create!(artist_name: 'The Beatles',
+                album_name: album)
+end
