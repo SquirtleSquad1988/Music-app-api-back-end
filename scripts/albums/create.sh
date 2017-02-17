@@ -9,7 +9,8 @@ curl "${API}${URL_PATH}" \
   --data '{
     "album": {
       "artist_name": "'"${ARTIST}"'",
-      "album_name": "'"${ALBUM}"'"
+      "album_name": "'"${ALBUM}"'",
+      "user_id": "'"${USER}"'"
     }
   }'
 echo

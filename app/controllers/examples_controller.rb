@@ -1,12 +1,12 @@
 # frozen_string_literal: true
-class ExamplesController < OpenReadController
+
+class ExamplesController < OpenReadController # index and show actions arent authenticated, other are
   before_action :set_example, only: [:update, :destroy]
 
   # GET /examples
   # GET /examples.json
   def index
     @examples = Example.all
-
     render json: @examples
   end
 
@@ -20,6 +20,7 @@ class ExamplesController < OpenReadController
   # POST /examples.json
   def create
     @example = current_user.examples.build(example_params)
+    # the thing created is owned by whichever user is identified by the token you sent
 
     if @example.save
       render json: @example, status: :created
@@ -48,7 +49,7 @@ class ExamplesController < OpenReadController
 
   def set_example
     @example = current_user.examples.find(params[:id])
-  end
+  end # if the token supplied doesnt match the id of the user then a 404 error will occur.
 
   def example_params
     params.require(:example).permit(:text)

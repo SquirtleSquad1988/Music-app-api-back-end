@@ -28,7 +28,7 @@ class AlbumsController < ApplicationController
   # PATCH/PUT /albums/1
   def update
     if @album.update(album_params)
-      render json: @album
+      head :no_content
     else
       render json: @album.errors, status: :unprocessable_entity
     end
@@ -47,7 +47,7 @@ class AlbumsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def album_params
-    params.require(:album).permit(:artist_name, :album_name)
+    params.require(:album).permit(:artist_name, :album_name, :user_id)
   end
   private :album_params
 end
