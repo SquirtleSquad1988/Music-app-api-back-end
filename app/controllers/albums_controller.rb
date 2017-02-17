@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AlbumsController < ApplicationController
+class AlbumsController < OpenReadController
   before_action :set_album, only: [:show, :update, :destroy]
 
   # GET /albums
@@ -16,7 +16,7 @@ class AlbumsController < ApplicationController
 
   # POST /albums
   def create
-    @album = Album.new(album_params)
+    @album = current_user.albums.build(album_params)
 
     if @album.save
       render json: @album, status: :created, location: @album
@@ -41,13 +41,13 @@ class AlbumsController < ApplicationController
   end
 
   def set_album
-    @album = Album.find(params[:id])
+    @album = current_user.albums.find(params[:id])
   end
   private :set_album
 
   # Only allow a trusted parameter "white list" through.
   def album_params
-    params.require(:album).permit(:artist_name, :album_name, :user_id)
+    params.require(:album).permit(:artist_name, :album_name)
   end
   private :album_params
 end
