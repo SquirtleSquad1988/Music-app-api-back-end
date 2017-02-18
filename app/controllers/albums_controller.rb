@@ -5,7 +5,7 @@ class AlbumsController < OpenReadController
 
   # GET /albums
   def index
-    @albums = Album.all
+    @albums = Album.where(user_id: current_user)
     render json: @albums
   end
 
