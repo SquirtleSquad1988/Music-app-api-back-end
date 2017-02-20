@@ -37,3 +37,9 @@ end
                 album_name: album,
                 user: User.all.sample)
 end
+
+%w(antony jeff matt jason alex chelsea dave harry).each do |name|
+  email = "#{name} is my friend"
+  # next if User.exists? email: email
+  Comment.create!(comment: email)
+end

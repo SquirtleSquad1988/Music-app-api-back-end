@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
+  resources :comments
   resources :albums, only: [:create, :update, :destroy]
   resources :albums, except: [:new, :edit]
   resources :examples, except: [:new, :edit]
