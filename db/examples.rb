@@ -30,7 +30,8 @@ end
    White_Album
    Sgt_Peppers_Lonely_Hearts_Club_Band
    Love
-   Beatles_For_Sale).each do |name|
+   Beatles_For_Sale
+   Yellow_Submarine).each do |name|
   album = name.to_s
   Album.create!(artist_name: 'The Beatles',
                 album_name: album,
