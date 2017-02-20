@@ -41,5 +41,6 @@ end
 %w(antony jeff matt jason alex chelsea dave harry).each do |name|
   email = "#{name} is my friend"
   # next if User.exists? email: email
-  Comment.create!(comment: email)
+  Comment.create!(comment: email,
+                  user: User.all.sample)
 end
