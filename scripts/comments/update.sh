@@ -5,6 +5,7 @@ URL_PATH="/comments/${ID}"
 curl "${API}${URL_PATH}" \
   --include \
   --request PATCH \
+  --header "Authorization: Token token=${TOKEN}" \
   --header "Content-Type: application/json" \
   --data '{
     "comment": {
@@ -13,4 +14,3 @@ curl "${API}${URL_PATH}" \
   }'
 
 echo
-  # --header "Authorization: Token token=${TOKEN}" \
