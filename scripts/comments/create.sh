@@ -9,7 +9,8 @@ curl "${API}${URL_PATH}" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "comment": {
-      "comment": "'"${COMMENT}"'"
+      "comment": "'"${COMMENT}"'",
+      "album_id": "'"${ALBUM}"'"
     }
   }'
 echo

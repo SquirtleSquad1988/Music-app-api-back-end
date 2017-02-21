@@ -17,7 +17,6 @@ class AlbumsController < OpenReadController
   # POST /albums
   def create
     @album = current_user.albums.build(album_params)
-
     if @album.save
       render json: @album, status: :created, location: @album
     else

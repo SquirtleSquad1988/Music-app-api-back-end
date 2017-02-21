@@ -42,5 +42,6 @@ end
   email = "#{name} is my friend"
   # next if User.exists? email: email
   Comment.create!(comment: email,
-                  user: User.all.sample)
+                  user: User.all.sample,
+                  album_id: Album.all.sample)
 end
