@@ -2,10 +2,12 @@
 
 class CommentsController < OpenReadController
   before_action :set_comment, only: [:show, :update, :destroy]
+  # before_filter :get_album
 
   # GET /comments
   def index
-    @comments = Comment.where(user_id: current_user)
+    @album = Album.find(params[:album_id])
+    @comments = @album.comments
     render json: @comments
   end
 
@@ -50,4 +52,8 @@ class CommentsController < OpenReadController
     params.require(:comment).permit(:comment, :album_id)
   end
   private :comment_params
+
+  def get_album
+    @album = Album.find(params[:album_id])
+  end
 end

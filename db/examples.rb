@@ -42,5 +42,5 @@ end
   # next if User.exists? email: email
   Comment.create!(comment: email,
                   user: User.find(1),
-                  album_id: Album.all.sample)
+                  album_id: '1')
 end
