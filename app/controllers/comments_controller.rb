@@ -52,8 +52,4 @@ class CommentsController < OpenReadController
     params.require(:comment).permit(:comment, :album_id)
   end
   private :comment_params
-
-  def get_album
-    @album = Album.find(params[:album_id])
-  end
 end
