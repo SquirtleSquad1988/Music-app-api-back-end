@@ -9,14 +9,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+# %w(antony jeff matt jason alex chelsea dave harry).each do |name|
 
-%w(antony jeff matt jason alex chelsea dave harry).each do |name|
-  email = "#{name}@gmail.com"
-  # next if User.exists? email: email
-  User.create!(email: email,
-               password: 'abc123',
-               password_confirmation: nil)
-end
+# next if User.exists? email: email
+User.create!(email: 'q@q',
+             password: 'q',
+             password_confirmation: 'q')
+# end
 
 %w(Revolver
    Please_Please_Me
@@ -35,13 +34,13 @@ end
   album = name.to_s
   Album.create!(artist_name: 'The Beatles',
                 album_name: album,
-                user: User.all.sample)
+                user: User.find(1))
 end
 
 %w(antony jeff matt jason alex chelsea dave harry).each do |name|
   email = "#{name} is my friend"
   # next if User.exists? email: email
   Comment.create!(comment: email,
-                  user: User.all.sample,
+                  user: User.find(1),
                   album_id: Album.all.sample)
 end
