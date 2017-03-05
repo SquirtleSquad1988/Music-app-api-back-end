@@ -38,6 +38,7 @@ class CommentsController < OpenReadController
 
   # DELETE /comments/1
   def destroy
+    binding.pry
     @comment.destroy
     head :no_content
   end
