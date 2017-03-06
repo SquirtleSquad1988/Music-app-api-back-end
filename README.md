@@ -7,4 +7,4 @@
 
 - [Deployed Back End](https://stormy-sierra-53534.herokuapp.com/)
 
-- Made by Alex Robles
+Made by Alex Robles
